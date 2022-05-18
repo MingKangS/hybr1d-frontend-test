@@ -9,10 +9,15 @@ import axios from 'axios';
 export default function Home() {
 	const [searchQuery, setSearchQuery] = useState("")
 	const [searchResults, setSearchResults] = useState([])
+	const [debounceTimeout, setDebounceTimeout] = useState(null)
 
-	
-	
 	const onChangeSearchQuery = (newQueryStr) => {
+		clearTimeout(debounceTimeout)
+		setDebounceTimeout(setTimeout(() => fetchSearchResults(newQueryStr), 1000))
+	}
+	
+	const fetchSearchResults = (newQueryStr) => {
+
 		console.log(newQueryStr)
 		axios.get('http://hn.algolia.com/api/v1/search?query=' + searchQuery)
 			.then(function (res) {
