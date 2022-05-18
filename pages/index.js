@@ -9,12 +9,15 @@ import axios from 'axios';
 export default function Home() {
 	const [searchQuery, setSearchQuery] = useState("")
 	const [searchResults, setSearchResults] = useState([])
+
+	
 	
 	const onChangeSearchQuery = (newQueryStr) => {
 		console.log(newQueryStr)
 		axios.get('http://hn.algolia.com/api/v1/search?query=' + searchQuery)
 			.then(function (res) {
 				console.log(res);
+				searchResults(res.data.hits)
 			})
 			.catch(function (err) {
 				console.log(err);
@@ -23,13 +26,13 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <div className="header">
-				<h1>Hacker News</h1>
+      <div className={styles.topBar}>
+				<h1 className={styles.header}>Hacker News</h1>
 			</div>
-			<div className="searchBarContainer">
-				<SearchBar onChangeSearchQuery={onChangeSearchQuery}/>
+			<div className={styles.searchBarContainer}>
+				<SearchBar onChangeSearchQuery={onChangeSearchQuery} styles={styles}/>
 			</div>
-			<div className="newsCardContainer">
+			<div className={styles.newsCardContainer}>
 				{searchResults.map((n, idx) => (
           <NewsCard/>
         ))}
