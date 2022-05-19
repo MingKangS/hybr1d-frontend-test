@@ -36,3 +36,9 @@
   font-family: "Nunito";
 	margin: auto;
 }
+
+.newsCardContainer {
+	display: flex;
+	width: 100vw;
+	flex-wrap: wrap;
+}
