@@ -19,10 +19,10 @@ export default function Home() {
 	const fetchSearchResults = (newQueryStr) => {
 
 		console.log(newQueryStr)
-		axios.get('http://hn.algolia.com/api/v1/search?query=' + searchQuery)
+		axios.get('http://hn.algolia.com/api/v1/search?query=' + newQueryStr)
 			.then(function (res) {
-				console.log(res);
-				searchResults(res.data.hits)
+				console.log(res, res.data.hits);
+				setSearchResults(res.data.hits)
 			})
 			.catch(function (err) {
 				console.log(err);
@@ -38,8 +38,8 @@ export default function Home() {
 				<SearchBar onChangeSearchQuery={onChangeSearchQuery} styles={styles}/>
 			</div>
 			<div className={styles.newsCardContainer}>
-				{searchResults.map((n, idx) => (
-          <NewsCard/>
+				{searchResults.map((newsItem, idx) => (
+          <NewsCard newsItem={newsItem} styles={styles} key={idx}/>
         ))}
 			</div>
     </div>
