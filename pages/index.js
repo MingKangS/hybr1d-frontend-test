@@ -23,6 +23,7 @@ export default function Home() {
 	}, []);
 
 	const onChangeSearchQuery = (newQueryStr) => {
+		setSearchResults([])
 		clearTimeout(debounceTimeout)
 		setDebounceTimeout(setTimeout(() => fetchSearchResults(newQueryStr), 1000))
 	}
@@ -56,6 +57,7 @@ export default function Home() {
 
   return (
     <div id="container" className={styles.container}>
+			
       <TopBar/>
 			<div className={styles.searchBarContainer}>
 				<SearchBar onChangeSearchQuery={onChangeSearchQuery} styles={styles}/>

@@ -10,7 +10,7 @@ const NewsCard = ({ newsItem, indexStyles }) => {
 	const formatHighlightResult = (val) => {
 		return val.replaceAll("</em>", "<em>")
 			.split("<em>")
-			.map((s,i)=> i % 2 == 1 ? <b>{s}</b> : s )
+			.map((s,i)=> i % 2 == 1 ? <b key={i} className={styles.highlight}>{s}</b> : s )
 	}
 
 	
