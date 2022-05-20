@@ -34,3 +34,13 @@
 	margin: auto;
 	flex-wrap: wrap;
 }
+
+@media only screen and (max-width: 600px) {
+  .newsCardContainer {
+		width: calc(100vw - 10px);
+	}
+
+	.searchBar {
+		width: 90%;
+	}
+}
