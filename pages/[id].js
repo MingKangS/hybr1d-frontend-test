@@ -4,7 +4,7 @@ import axios from 'axios';
 import TopBar from '../components/TopBar';
 import styles from '../styles/News.module.css';
 import Post from '../components/Post';
-
+import Loading from '../components/Loading';
 
 const News = () => {
 	const router = useRouter()
@@ -28,6 +28,13 @@ const News = () => {
 
 	return ( 
 		<div>
+			{
+				!post && 
+				<div className="loading">
+					<Loading/>
+					
+				</div>
+			}
 			<TopBar/>
 			{
 				post ? 

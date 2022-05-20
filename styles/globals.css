@@ -55,3 +55,12 @@ a {
 	margin: auto;
 	color: #fff;
 }
+
+.loading {
+	opacity: .3;
+	background-color: white;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+}

@@ -61,7 +61,7 @@ export default function Home() {
     <div id="container" className={styles.container}>
 			{
 				isFetchingResults && 
-				<div className={styles.loading}>
+				<div className="loading">
 					<Loading/>
 					
 				</div>
