@@ -1,6 +1,7 @@
 import AvatarGenerator from 'react-avatar-generator';
 import styles from '../styles/Post.module.css';
 import randomHex from "../utils/utils";
+import Comment from './Comment';
 
 const Post = ({ post }) => {
 	console.log(post)
@@ -27,7 +28,7 @@ const Post = ({ post }) => {
 			<p className={styles.title}>{ post.points } points</p>
 
 			{
-				post.children.map((c,i)=> <Post post={c} key={i}/>)
+				post.children.map((c,i)=> <Comment comment={c} key={i}/>)
 			}
 		</div>
 	 );
