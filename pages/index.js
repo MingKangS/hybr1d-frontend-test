@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import NewsCard from '../components/NewsCard';
 import SearchBar from '../components/searchBar';
 import axios from 'axios';
+import TopBar from '../components/TopBar';
 
 export default function Home() {
 	const [searchQuery, setSearchQuery] = useState("")
@@ -18,7 +19,7 @@ export default function Home() {
 	}, [resultsPageNumber]);
 
 	useEffect(() => {
-		document.body.addEventListener('scroll', handleScroll);
+		document.getElementById("container").addEventListener('scroll', handleScroll);
 	}, []);
 
 	const onChangeSearchQuery = (newQueryStr) => {
@@ -54,10 +55,8 @@ export default function Home() {
 
 
   return (
-    <div className={styles.container}>
-      <div className={styles.topBar}>
-				<h1 className={styles.header}>Hacker News</h1>
-			</div>
+    <div id="container" className={styles.container}>
+      <TopBar/>
 			<div className={styles.searchBarContainer}>
 				<SearchBar onChangeSearchQuery={onChangeSearchQuery} styles={styles}/>
 			</div>

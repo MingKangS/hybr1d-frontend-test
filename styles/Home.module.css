@@ -1,23 +1,11 @@
 .container {
   background-color: #eee;
 	min-height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	height: 100vh;
 }
 
-.topBar {
-	width: 100vw;
-	height: 40px;
-	background-color: #008EFE;
-	display: flex;
-	flex-direction: row;
-}
-
-.header {
-	font-size: larger;
-	font-weight: 700;
-	font-family: "Nunito";
-	margin: auto;
-	color: #fff;
-}
 
 .searchBarContainer {
 	width: 100vw;

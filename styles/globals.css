@@ -7,9 +7,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	overflow-y: scroll;
-	overflow-x: hidden;
-	height: 100vh;
+	
 	}
 
 a {
@@ -19,4 +17,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+.topBar {
+	width: 100vw;
+	height: 40px;
+	background-color: #008EFE;
+	display: flex;
+	flex-direction: row;
+}
+
+.header {
+	font-size: larger;
+	font-weight: 700;
+	font-family: "Nunito";
+	margin: auto;
+	color: #fff;
 }
