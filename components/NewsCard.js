@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AvatarGenerator from 'react-avatar-generator';
 import styles from '../styles/NewsCard.module.css'
+import randomHex from "../utils/utils";
 
 const NewsCard = ({ newsItem, indexStyles }) => {
 	let text = "once upon a time, \t there was a man \t who had a house." ;
@@ -11,9 +12,7 @@ const NewsCard = ({ newsItem, indexStyles }) => {
 			.map((s,i)=> i % 2 == 1 ? <b>{s}</b> : s )
 	}
 
-	const randomHex = () => {
-		return "#" + Math.floor(Math.random()*16777215).toString(16)
-	}
+	
 	return ( 
 		<Link href={"/" + newsItem.objectID}>
       <div className={styles.newsCard}>

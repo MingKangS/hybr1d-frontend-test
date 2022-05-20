@@ -1,7 +1,9 @@
 import AvatarGenerator from 'react-avatar-generator';
 import styles from '../styles/Post.module.css';
+import randomHex from "../utils/utils";
 
 const Post = ({ post }) => {
+	console.log(post)
 	return ( 
 		<div className={styles.cardHeaderDiv}>
 			<div className={styles.cardHeaderDiv}>
@@ -11,23 +13,22 @@ const Post = ({ post }) => {
 					width={30}
 					height={30}
 				/>
-				<p className={styles.authorName}>{post.title}</p>
-				<p className={styles.createdAt}>{ newsItem.created_at.slice(0,10) }</p>
+				<p className={styles.authorName}>{post.author}</p>
+				<p className={styles.createdAt}>{ post.created_at.slice(0,10) }</p>
 			</div>
 			
-			{
-				newsItem._highlightResult.title ? 
-				<p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.title.value) }</p>
-				: <p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.story_text.value) }</p>
-			}
 			
 			{
-				newsItem._highlightResult.url &&
-				<p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.url.value) }</p>
+				post.title &&
+				<p className={styles.title}>{ post.title }</p>
 			}
 			
-			<p className={styles.title}>{ newsItem.points } points</p>
-			<p className={styles.title}>{ newsItem.num_comments } comments</p>
+			<p className={styles.title} dangerouslySetInnerHTML={{__html: post.text}}></p>
+			<p className={styles.title}>{ post.points } points</p>
+
+			{
+				post.children.map((c,i)=> <Post post={c} key={i}/>)
+			}
 		</div>
 	 );
 }

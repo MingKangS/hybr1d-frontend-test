@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import axios from 'axios';
 import TopBar from '../components/TopBar';
 import styles from '../styles/News.module.css';
+import Post from '../components/Post';
 
 
 const News = () => {
@@ -28,9 +29,15 @@ const News = () => {
 	return ( 
 		<div>
 			<TopBar/>
-			<div className={styles.postContainer}>
-
-			</div>
+			{
+				post ? 
+				<div className={styles.postContainer}>
+					<Post post={post}/>
+				</div>
+				: 
+				<div></div>
+			}
+			
 		</div>
 	 );
 }
