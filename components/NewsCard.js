@@ -2,6 +2,7 @@ import Link from "next/link";
 import AvatarGenerator from 'react-avatar-generator';
 import styles from '../styles/NewsCard.module.css'
 import randomHex from "../utils/utils";
+import generateAvatar from "github-like-avatar-generator";
 
 const NewsCard = ({ newsItem, indexStyles }) => {
 	let text = "once upon a time, \t there was a man \t who had a house." ;
@@ -17,13 +18,11 @@ const NewsCard = ({ newsItem, indexStyles }) => {
 		<Link href={"/" + newsItem.objectID}>
       <div className={styles.newsCard}>
 				<div className={styles.cardHeaderDiv}>
-					<AvatarGenerator
-						colors={[randomHex(), randomHex(), randomHex()]}
-						backgroundColor={"#fff"}
-						width={30}
-						height={30}
-					/>
-					<p className={styles.authorName}><em>{ formatHighlightResult(newsItem._highlightResult.author.value) }</em></p>
+					<img src={generateAvatar({
+						blocks: 4,
+						width: 25,
+					}).base64}/>
+					<p className={styles.authorName}>{ formatHighlightResult(newsItem._highlightResult.author.value) }</p>
 					<p className={styles.createdAt}>{ newsItem.created_at.slice(0,10) }</p>
 				</div>
 				
@@ -35,11 +34,17 @@ const NewsCard = ({ newsItem, indexStyles }) => {
         
 				{
 					newsItem._highlightResult.url &&
-					<p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.url.value) }</p>
+					<p className={styles.url}>{ formatHighlightResult(newsItem._highlightResult.url.value) }</p>
 				}
 				
-				<p className={styles.title}>{ newsItem.points } points</p>
-				<p className={styles.title}>{ newsItem.num_comments } comments</p>
+				<div className={styles.bottomDiv}>
+					<p className={styles.points}>{ newsItem.points } points  </p>
+					{
+						newsItem.num_comments && <p className={styles.comments}>{ newsItem.num_comments } comments</p>
+					}
+					
+				</div>
+				
       </div>
     </Link>
 	 );

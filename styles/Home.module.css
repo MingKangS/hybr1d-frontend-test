@@ -27,6 +27,7 @@
 
 .newsCardContainer {
 	display: flex;
-	width: 100vw;
+	width: calc(100vw - 100px);
+	margin: auto;
 	flex-wrap: wrap;
 }

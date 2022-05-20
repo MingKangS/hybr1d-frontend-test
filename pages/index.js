@@ -30,7 +30,7 @@ export default function Home() {
 	const fetchSearchResults = (newQueryStr) => {
 		setIsFetchingResults(true)
 		console.log("axois fetching")
-		axios.get('http://hn.algolia.com/api/v1/search?query=' + newQueryStr + "&page=" + resultsPageNumber)
+		axios.get('http://hn.algolia.com/api/v1/search?tags=story&query=' + newQueryStr + "&page=" + resultsPageNumber)
 			.then(function (res) {
 				console.log(res.data.hits);
 				setSearchResults(searchResults.concat(res.data.hits))

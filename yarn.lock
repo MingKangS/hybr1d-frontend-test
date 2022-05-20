@@ -1708,6 +1708,13 @@
   "resolved" "https://registry.npmjs.org/get-value/-/get-value-2.0.6.tgz"
   "version" "2.0.6"
 
+"github-like-avatar-generator@^1.1.10":
+  "integrity" "sha512-cF+3An+s6Xih8AdtZJ7I3512AQdmmVyxYCbfCPC1nu5zzrZofwA2LTA+FZGIDJMfoEDkFuug341FH6C1NNJFAg=="
+  "resolved" "https://registry.npmjs.org/github-like-avatar-generator/-/github-like-avatar-generator-1.1.10.tgz"
+  "version" "1.1.10"
+  dependencies:
+    "color-convert" "^2.0.1"
+
 "glob-parent@^3.1.0":
   "integrity" "sha1-nmr2KZ2NO9K9QEMIMr0RPfkGxa4="
   "resolved" "https://registry.npmjs.org/glob-parent/-/glob-parent-3.1.0.tgz"
