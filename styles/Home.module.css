@@ -6,6 +6,16 @@
 	height: 100vh;
 }
 
+.loading {
+	opacity: .3;
+	background-color: white;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	z-index: 1;
+}
+
+
 
 .searchBarContainer {
 	width: 100vw;

@@ -6,6 +6,7 @@ import NewsCard from '../components/NewsCard';
 import SearchBar from '../components/searchBar';
 import axios from 'axios';
 import TopBar from '../components/TopBar';
+import Loading from '../components/Loading';
 
 export default function Home() {
 	const [searchQuery, setSearchQuery] = useState("")
@@ -24,6 +25,7 @@ export default function Home() {
 
 	const onChangeSearchQuery = (newQueryStr) => {
 		setSearchResults([])
+		setIsFetchingResults(true)
 		clearTimeout(debounceTimeout)
 		setDebounceTimeout(setTimeout(() => fetchSearchResults(newQueryStr), 1000))
 	}
@@ -57,6 +59,13 @@ export default function Home() {
 
   return (
     <div id="container" className={styles.container}>
+			{
+				isFetchingResults && 
+				<div className={styles.loading}>
+					<Loading/>
+					
+				</div>
+			}
 			
       <TopBar/>
 			<div className={styles.searchBarContainer}>
