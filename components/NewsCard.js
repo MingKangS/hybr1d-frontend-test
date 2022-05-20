@@ -28,8 +28,12 @@ const NewsCard = ({ newsItem, indexStyles }) => {
 					<p className={styles.createdAt}>{ newsItem.created_at.slice(0,10) }</p>
 				</div>
 				
+        {
+					newsItem._highlightResult.title ? 
+					<p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.title.value) }</p>
+					: <p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.story_text.value) }</p>
+				}
         
-        <p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.title.value) }</p>
 				{
 					newsItem._highlightResult.url &&
 					<p className={styles.title}>{ formatHighlightResult(newsItem._highlightResult.url.value) }</p>
