@@ -58,3 +58,9 @@
 	margin: auto auto auto 15px;
 	color: #FE7000;
 }
+
+@media only screen and (max-width: 600px) {
+  .postContainer {
+		width: calc(100vw - 10px);
+	}
+}
